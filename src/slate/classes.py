@@ -4,6 +4,10 @@ if PYTHON_3:
     from io import StringIO
 else:
     from StringIO import StringIO
+
+try:
+    from pdfminer.pdfparser import PDFPage
+except ImportError:
     from pdfminer.pdfpage import PDFPage
 
 
@@ -18,10 +22,6 @@ try:
     from pdfminer.pdfparser import PDFDocument
 except ImportError:
     from pdfminer.pdfdocument import PDFDocument
-try:
-    from pdfminer.pdfparser import PDFPage
-except ImportError:
-    from pdfminer.pdfpage import PDFPage
 import utils
 
 __all__ = ['PDF']
